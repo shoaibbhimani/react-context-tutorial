@@ -5,11 +5,14 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import PostStoreProvider from "./store/PostStore";
+import CommentStoreProvider from "./store/CommentStore";
 
 ReactDOM.render(
   <React.StrictMode>
     <PostStoreProvider>
-      <App />
+      <CommentStoreProvider>
+        <App />
+      </CommentStoreProvider>
     </PostStoreProvider>
   </React.StrictMode>,
   document.getElementById("root")

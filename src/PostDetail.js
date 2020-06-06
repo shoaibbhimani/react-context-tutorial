@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import { PostStoreContext } from "./store/PostStore";
+import { usePostStore } from "./store/PostStore";
 const PostDetail = () => {
-  const { selectedPost } = useContext(PostStoreContext);
+  const { selectedPost } = usePostStore();
   if (selectedPost === null) {
     return <div>Please select a Post</div>;
   }

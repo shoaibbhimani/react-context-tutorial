@@ -1,9 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
-import { PostStoreContext } from "./store/PostStore";
+import { usePostStore } from "./store/PostStore";
+import { useCommentStore } from "./store/CommentStore";
 
 const PostList = () => {
-  const { posts, setPosts, setSelectedPost } = useContext(PostStoreContext);
+  const { posts, setPosts, setSelectedPost } = usePostStore();
+  useCommentStore();
 
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => {

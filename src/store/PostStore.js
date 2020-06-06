@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 export const PostStoreContext = React.createContext();
 
@@ -13,6 +13,10 @@ const PostStoreProvider = ({ children }) => {
       {children}
     </PostStoreContext.Provider>
   );
+};
+
+export const usePostStore = () => {
+  return useContext(PostStoreContext);
 };
 
 export default PostStoreProvider;
