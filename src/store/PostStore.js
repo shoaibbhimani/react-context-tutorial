@@ -1,6 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 
-export const PostStoreContext = React.createContext();
+import { createContext, useContextSelector } from "use-context-selector"
+
+export const PostStoreContext = createContext();
 
 const PostStoreProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
@@ -15,8 +17,12 @@ const PostStoreProvider = ({ children }) => {
   );
 };
 
-export const usePostStore = () => {
-  return useContext(PostStoreContext);
-};
+
+export const usePostStore = (postStoreValue) => {
+  return useContextSelector(PostStoreContext, state => {
+    return state[postStoreValue]
+  })
+}
+
 
 export default PostStoreProvider;

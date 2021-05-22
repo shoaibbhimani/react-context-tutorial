@@ -4,7 +4,12 @@ import { usePostStore } from "./store/PostStore";
 import { useCommentStore } from "./store/CommentStore";
 
 const PostList = () => {
-  const { posts, setPosts, setSelectedPost } = usePostStore();
+  
+  const posts = usePostStore("posts")
+  const setPosts = usePostStore("setPosts")
+  const setSelectedPost = usePostStore("setSelectedPost")
+
+
   useCommentStore();
 
   useEffect(() => {
@@ -12,6 +17,10 @@ const PostList = () => {
       setPosts(response.data);
     });
   }, []);
+
+
+  console.log("rendering")
+
   return (
     <div>
       <div>PostList</div>

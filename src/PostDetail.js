@@ -1,8 +1,9 @@
 import React from "react";
-
-import { usePostStore } from "./store/PostStore";
+import {  usePostStore } from "./store/PostStore";
 const PostDetail = () => {
-  const { selectedPost } = usePostStore();
+  
+  const selectedPost = usePostStore("selectedPost")
+
   if (selectedPost === null) {
     return <div>Please select a Post</div>;
   }
